@@ -7,8 +7,8 @@ This is a simple recipe to re-emulate uGMT from its unpacked inputs for utilizin
 To produce ntuples using the example PSET file:
 
 ```
-cmsrel CMSSW_12_5_0_pre5
-cd CMSSW_12_5_0_pre5/src
+cmsrel CMSSW_12_4_8
+cd CMSSW_12_4_8/src
 cmsenv
 git cms-init
 voms-proxy-init --voms cms --valid 24:00:00
@@ -16,6 +16,8 @@ voms-proxy-init --voms cms --valid 24:00:00
 git cms-addpkg L1Trigger/Configuration
 
 sed -i '60i from L1Trigger.L1TMuon.fakeGmtParams_cff import *' L1Trigger/Configuration/python/SimL1Emulator_cff.py
+
+git clone git@github.com:eyigitba/EMTFTools.git
 
 scram b -j8
 
@@ -34,7 +36,7 @@ This will create an "EMTFNtuple" with re-emulated L1 muons, unpacked L1 muons, a
 If you want to just take the changes to the uGMT and re-emulate it within your framework, you can do the following.
 
 The main changes to implement are as follows:
-(note: I tested this in 12_5_0_pre5, but it should work on all releases from past 2 years at least.)
+(note: I tested this in 12_4_8, but it should work on all releases from past 2 years at least.)
 
 ```
 git cms-addpkg L1Trigger/Configuration
@@ -44,6 +46,7 @@ sed -i '60i from L1Trigger.L1TMuon.fakeGmtParams_cff import *' L1Trigger/Configu
 scram b -j8
 
 ```
+
 
 This enables using the values in `fakeGmtParams_cff` instead of fetching them from LUTs.
 
