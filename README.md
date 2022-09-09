@@ -34,12 +34,9 @@ This will create an "EMTFNtuple" with re-emulated L1 muons, unpacked L1 muons, a
 If you want to just take the changes to the uGMT and re-emulate it within your framework, you can do the following.
 
 The main changes to implement are as follows:
-```
-cmsrel CMSSW_12_5_0_pre5
-cd CMSSW_12_5_0_pre5/src
-cmsenv
-git cms-init
+(note: I tested this in 12_5_0_pre5, but it should work on all releases from past 2 years at least.)
 
+```
 git cms-addpkg L1Trigger/Configuration
 
 sed -i '60i from L1Trigger.L1TMuon.fakeGmtParams_cff import *' L1Trigger/Configuration/python/SimL1Emulator_cff.py
