@@ -44,17 +44,13 @@ simGmtStage2Digis.barrelTFInput = cms.InputTag("unpackGmtStage2","BMTF")
 simGmtStage2Digis.forwardTFInput = cms.InputTag("unpackGmtStage2","EMTF")
 simGmtStage2Digis.overlapTFInput = cms.InputTag("unpackGmtStage2","OMTF")
 
-# line 162 in origin file
+# replace the line below with line 162 in origin file
 stage2L1Trigger.toReplaceWith(SimL1EmulatorTask, cms.Task(unpackEcal,unpackHcal,unpackCSC,unpackDT,unpackRPC,unpackRPCTwinMux,unpackTwinMux,unpackOmtf,unpackEmtf,unpackCsctf,unpackBmtf, unpackGmtStage2
 ```
 
 ##### `hlt_uGMT_full.py`
 ```
-## line 81406 and below
-# run the Full L1T emulator, then repack the data into a new RAW collection, to be used by the HLT
-from HLTrigger.Configuration.CustomConfigs import L1REPACK
-process = L1REPACK(process,"Full")
-
+## line 81408 and below L1REPACK definition
 # Run 3 firmware version is required to replicate P5 behaviour
 process.gmtParams.fwVersion = cms.uint32(0x7000000)
 
