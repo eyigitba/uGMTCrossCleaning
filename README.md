@@ -69,6 +69,9 @@ process.simGmtCaloSumDigis.triggerTowerInput = cms.InputTag("caloStage2Digis", "
 
 # Run 3 firmware version is required to replicate P5 behaviour
 process.gmtParams.fwVersion = cms.uint32(0x7000000)
+
+# Then add it to your schedule:
+process.schedule = cms.Schedule(process.raw2digi_step, process.calo_sum_step, process.gmt_step, <any-other-steps-you-have>, process.endjob_step)
 ```
 
 There are 4 different options that we tried. These lines also should be added to the PSET file. Only use one of them :)
