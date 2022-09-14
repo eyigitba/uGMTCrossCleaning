@@ -52,6 +52,9 @@ This enables using the values in `fakeGmtParams_cff` instead of fetching them fr
 
 Then in any PSET file you can add the following lines for different cross cleaning parameters and make your favorite ntuple.
 
+### Note: uGMT emulator needs unpacked inputs, so you'll have to add RAW2DIGI process before the re-emulation in your schedule. You can find an example in the example PSET file `emtfNtuple_reEmul_extreme.py`
+
+
 ```
 # Get uGMT emulator
 process.load('L1Trigger.L1TMuon.simGmtStage2Digis_cfi')
